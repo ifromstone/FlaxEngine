@@ -302,7 +302,7 @@ namespace FlaxEditor.Viewport.Previews
             // Draw bounds
             if (_showBounds)
             {
-                DebugDraw.DrawWireBox(_previewModel.Box, Color.Violet.RGBMultiplied(0.8f), 0, false);
+                DebugDrawBounds(_previewModel.Box);
             }
 
             // Draw normals
@@ -431,7 +431,7 @@ namespace FlaxEditor.Viewport.Previews
         {
             base.Draw();
 
-            if (_showCurrentLOD)
+            if (_showCurrentLOD && Model)
             {
                 var asset = Model;
                 var lodIndex = ComputeLODIndex(asset, out var screenSize);
